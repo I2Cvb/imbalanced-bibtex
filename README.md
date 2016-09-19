@@ -11,4 +11,4 @@ What for?
 
 This is the repository containing all the publications related with imbalanced learning that we use.
 
-**Sort the entries by alphabetic order.**
+A script is available to sort automatically the bibtex entry on a master push. The bibtex key need to be **author-year-title**
