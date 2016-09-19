@@ -16,4 +16,4 @@ git commit -m "Sort the bibtex file"
 
 echo "Done with the commit, let's push"
 
-git push --force origin master
+git push origin master
