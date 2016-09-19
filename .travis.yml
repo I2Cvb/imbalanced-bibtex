@@ -1,0 +1,26 @@
+sudo: false
+language: python
+python:
+- 2.7
+cache:
+  apt: true
+  directories:
+  - $HOME/.cache/pip
+  - $HOME/download
+env:
+  global:
+  - TEST_DIR=/tmp/test_dir
+  - MODULE=protoclass
+  - OMP_NUM_THREADS=4
+  - OPENBLAS_NUM_THREADS=4
+  - USERNAME="glemaitre"
+  - EMAIL="g.lemaitre58@gmail.com"
+  - secure: Ae3qFVZUX8tu6XQSjLzVocf/nCF95poQZWn12kjpxGxov04ftWGCZADxffbvHGf1fCQW888i2DHVCt61tOwJdH+JXRbrumF83sPrCxOyQ5mZ0zVHhoiHLdVbCnTMOdpK1RNF7UsyIsaMecbXNbMtsWjrm9w4Ks8M3cTq8E4qt2fnd68Rd02f2Sb5XFY5YnrCWB01oyszzy/LFsRPNfL8U41Pxby/kM9kdODqU2FaNKFADwAvBi7pp2C3+ehKV2B5i8XJF6/Wx2k72lO5w21b0r6X7cF4PaOqKucueE7S6/BMUsUUYm4cAe0UZx7UYFwyTGqKe4oVCk+8TFCErr89CDSbM45uDQJDXIuekxRxy8WAnckydz85Hu3Z4Beup+axnkr6m5SGg0BNbzUAdkN9AizlDw0LcP+DOfu8GHOVKWDOs36ZFiFLX3qUlV32Vya+b0IKv0UKqRxFgys3qbV13o4HGSToZL7NSKxJ2IgGg7e7rJzluoxT6IJBig/9DuE98a7c1TLoiCYsduc08rHfygULUOw03DTXhUXFIAT1Tq6JScw8rWjD1y79m6sQ10morBnXGYrfA52jdGyCOoPdy9+h0XmRE0KccKjlcKCQmS7fnbaAIDoDFpM5kLy7B0b2tpiR/5nkksPQD3A1R93WZdp3mWFotC61lu7YEEBzJNI=
+  matrix:
+  - DISTRIB="conda" PYTHON_VERSION="2.7" COVERAGE="true" NUMPY_VERSION="1.10.0" SCIPY_VERSION="0.17.0"
+before_install:
+- git submodule update --init --recursive
+install:
+- source build_tools/travis/install.sh
+script:
+- bash build_tools/travis/push_bibtex.sh
