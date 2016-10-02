@@ -6,6 +6,8 @@ if [ "$TRAVIS_BRANCH" == "master" ]; then
 
     cd $TRAVIS_BUILD_DIR
 
+    git checkout master
+
     # Order the bibtex
     python sort_bibtex.py
 
@@ -13,8 +15,7 @@ if [ "$TRAVIS_BRANCH" == "master" ]; then
 
     git config --global user.email $EMAIL
     git config --global user.name $USERNAME
-    git add imbalanced-bibtex.bib
-    git commit -m "Sort the bibtex file"
+    git commit -am "Sort the bibtex file"
 
     echo "Done with the commit, let's push"
 
